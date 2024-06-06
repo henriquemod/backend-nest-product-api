@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { UpdateProductDto } from 'src/dto/product';
 
 @Injectable()
 export class ProductService {
@@ -14,8 +15,8 @@ export class ProductService {
     return 'Product created!';
   }
 
-  updateProduct(id: string): string {
-    return `Product ${id} updated!`;
+  updateProduct(id: string, updateData: UpdateProductDto): string {
+    return `Product ${id} updated! New data: ${updateData}`;
   }
 
   deleteProduct(id: string): string {

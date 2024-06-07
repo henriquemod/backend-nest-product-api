@@ -7,6 +7,7 @@ import {
   Put,
   Body,
   HttpCode,
+  UseGuards,
 } from '@nestjs/common';
 import { ProductService } from '../../services/product.service';
 import {
@@ -15,11 +16,13 @@ import {
   UpdateProductDto,
 } from '../../dto/product';
 import { ValidateObjectIdPipe } from '../../infra/db/mongo/helpers/path-validator';
+import { AuthGuard } from 'src/auth/auth.guard';
 
 @Controller('products')
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
+  @UseGuards(AuthGuard)
   @Post()
   async createProduct(
     @Body() createProductDto: CreateProductDto,
@@ -39,6 +42,7 @@ export class ProductController {
     return this.productService.getProduct(id);
   }
 
+  @UseGuards(AuthGuard)
   @Put(':id')
   async updateProduct(
     @Param('id', ValidateObjectIdPipe) id: string,
@@ -47,6 +51,7 @@ export class ProductController {
     return this.productService.updateProduct(id, updateProductDto);
   }
 
+  @UseGuards(AuthGuard)
   @Delete(':id')
   @HttpCode(204)
   async deleteProduct(

@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { ProductModel } from 'src/domain/models';
+import { ProductModel } from 'src/domain/product';
 
 export const ProductSchema = new mongoose.Schema<ProductModel>({
   name: {

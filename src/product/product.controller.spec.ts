@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
-import { CreateProductDto, UpdateProductDto } from '../../dto/product';
-import { ProductService } from '../../services/product.service';
+import { CreateProductDto, UpdateProductDto } from '../dto/product';
+import { ProductService } from './product.service';
 import { ProductController } from './product.controller';
 import mongoose from 'mongoose';
 

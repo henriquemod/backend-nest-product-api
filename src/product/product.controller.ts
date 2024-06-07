@@ -9,13 +9,9 @@ import {
   HttpCode,
   UseGuards,
 } from '@nestjs/common';
-import { ProductService } from '../../services/product.service';
-import {
-  CreateProductDto,
-  ProductDto,
-  UpdateProductDto,
-} from '../../dto/product';
-import { ValidateObjectIdPipe } from '../../infra/db/mongo/helpers/path-validator';
+import { ProductService } from './product.service';
+import { CreateProductDto, ProductDto, UpdateProductDto } from '../dto/product';
+import { ValidateObjectIdPipe } from '../infra/mongo/helpers/path-validator';
 import { AuthGuard } from 'src/auth/auth.guard';
 
 @Controller('products')

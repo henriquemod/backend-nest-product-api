@@ -4,6 +4,7 @@ import { CreateProductDto, UpdateProductDto } from '../dto/product';
 import { ProductService } from './product.service';
 import { ProductController } from './product.controller';
 import mongoose from 'mongoose';
+import { JwtService } from '@nestjs/jwt';
 
 const MOCK_PRODUCT_ID = new mongoose.Types.ObjectId().toHexString();
 const MOCK_PRODUCT = {
@@ -36,6 +37,7 @@ describe('ProductController', () => {
           provide: ProductService,
           useValue: mockProductService,
         },
+        JwtService,
       ],
     }).compile();
 

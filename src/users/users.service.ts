@@ -18,7 +18,7 @@ export class UsersService {
     ];
   }
 
-  async findOne(username) {
+  async findOne(username: string) {
     return this.users.find((user) => user.username === username);
   }
 }

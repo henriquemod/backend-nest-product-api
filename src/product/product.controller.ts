@@ -12,7 +12,7 @@ import {
 import { ProductService } from './product.service';
 import { CreateProductDto, ProductDto, UpdateProductDto } from '../dto/product';
 import { ValidateObjectIdPipe } from '../infra/mongo/helpers/path-validator';
-import { AuthGuard } from 'src/auth/auth.guard';
+import { AuthGuard } from '../auth/auth.guard';
 
 @Controller('products')
 export class ProductController {

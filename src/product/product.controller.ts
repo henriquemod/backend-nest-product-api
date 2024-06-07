@@ -1,24 +1,29 @@
 import {
+  Body,
   Controller,
   Delete,
   Get,
+  HttpCode,
   Param,
   Post,
   Put,
-  Body,
-  HttpCode,
   UseGuards,
 } from '@nestjs/common';
-import { ProductService } from './product.service';
+import { ApiBearerAuth, ApiBody, ApiResponse } from '@nestjs/swagger';
+import { AuthGuard } from '../auth/auth.guard';
 import { CreateProductDto, ProductDto, UpdateProductDto } from '../dto/product';
 import { ValidateObjectIdPipe } from '../infra/mongo/helpers/path-validator';
-import { AuthGuard } from '../auth/auth.guard';
+import { ProductService } from './product.service';
 
 @Controller('products')
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
   @UseGuards(AuthGuard)
+  @ApiBearerAuth()
+  @ApiBody({ type: CreateProductDto })
+  @ApiResponse({ status: 201, type: ProductDto })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
   @Post()
   async createProduct(
     @Body() createProductDto: CreateProductDto,

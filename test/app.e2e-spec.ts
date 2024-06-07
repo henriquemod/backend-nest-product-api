@@ -73,20 +73,20 @@ describe('Product (e2e)', () => {
       .get('/products')
       .set('Authorization', `Bearer ${token}`);
 
-    const productId = data.body[0].id;
+    const product = data.body[0];
 
     const response = await request(app.getHttpServer())
-      .get(`/products/${productId}`)
+      .get(`/products/${product.id}`)
       .set('Authorization', `Bearer ${token}`);
 
     expect(response.status).toBe(200);
     expect(response.body).toEqual(
       expect.objectContaining({
-        id: productId,
-        name: expect.any(String),
-        price: expect.any(Number),
-        createdAt: expect.any(String),
-        updatedAt: expect.any(String),
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        createdAt: product.createdAt,
+        updatedAt: product.updatedAt,
       }),
     );
   });
@@ -97,20 +97,20 @@ describe('Product (e2e)', () => {
       .set('Authorization', `Bearer ${token}`)
       .send();
 
-    const productId = data.body[0].id;
+    const product = data.body[0];
 
     const response = await request(app.getHttpServer())
-      .put(`/products/${productId}`)
+      .put(`/products/${product.id}`)
       .set('Authorization', `Bearer ${token}`)
       .send({ name: 'Product 2', price: 20 });
 
     expect(response.status).toBe(200);
     expect(response.body).toEqual(
       expect.objectContaining({
-        id: productId,
+        id: product.id,
         name: 'Product 2',
         price: 20,
-        createdAt: expect.any(String),
+        createdAt: product.createdAt,
         updatedAt: expect.any(String),
       }),
     );

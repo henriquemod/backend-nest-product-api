@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    depends_on:
+      - mongo_dfcom_api
+    environment:
+      - DB_HOST=mongo_dfcom_api
+
+  mongo_dfcom_api:
+    image: mongo:7.0.9
+    volumes:
+      - ./mongod.conf:/etc/mongo/mongod.conf
+    ports:
+      - 27017:27017
+    restart: always
+    command: --config /etc/mongo/mongod.conf

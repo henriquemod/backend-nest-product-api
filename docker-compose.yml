@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  mongo1:
+  mongo:
     image: mongo:7.0.9
     command: ['--replSet', 'rs0', '--bind_ip_all', '--port', '27017']
     ports:
@@ -17,6 +17,5 @@ services:
       retries: 30
   redis:
     image: redis:latest
-    container_name: redis
     ports:
       - '6379:6379'

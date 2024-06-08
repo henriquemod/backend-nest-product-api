@@ -5,6 +5,8 @@ export class CreateProductDto {
   @ApiProperty({
     example: 'Whey Protein',
     description: 'The product name',
+    nullable: false,
+    title: 'Product Name',
   })
   @IsString()
   name: string;
@@ -12,6 +14,8 @@ export class CreateProductDto {
   @ApiProperty({
     example: 100,
     description: 'The product price',
+    nullable: false,
+    title: 'Product Price',
   })
   @IsNumber()
   price: number;

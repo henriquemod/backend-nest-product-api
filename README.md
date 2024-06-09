@@ -126,7 +126,7 @@ Once the project is started you can begin calling the API
 
 ## Documentation
 
-This API has Swagger documentation and can be found accessing http://localhost:3000/docs once you run the API
+This API has Swagger documentation and can be found accessing http://localhost:3030/docs once you run the API
 
 <!-- Tests -->
 

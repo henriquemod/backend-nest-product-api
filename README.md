@@ -50,7 +50,7 @@ This project has only 2 envs:
 
 ## Getting Started
 
-This project was builded with **NodeJS v21.7.3** but older versions should work just fine
+This project runs on port **3030** by default and was builded with **NodeJS v21.7.3** but older versions should work just fine
 
 <!-- Prerequisites -->
 
@@ -122,7 +122,7 @@ _Command will create an MongoDB for this project on localhost and start the API_
 
 ## Usage
 
-Once the project is started you can begin calling the API
+Once the project is started you can begin calling the API, I added a file called dfcom.postman_collection.json for Postman collection with all the endpoints available.
 
 <!-- Documentation -->
 

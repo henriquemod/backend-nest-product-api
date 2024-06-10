@@ -124,6 +124,13 @@ _Command will create an MongoDB for this project on localhost and start the API_
 
 Once the project is started you can begin calling the API, I added a file called dfcom.postman_collection.json for Postman collection with all the endpoints available.
 
+### Credentials
+
+```
+username: admin
+password: admin
+```
+
 <!-- Documentation -->
 
 ## Documentation
@@ -141,6 +148,10 @@ You can run the tests with:
 ```
 
 ```bash
+  # In order to e2e tests to work you need to MongoDB server running
+  # if you already have one running you can skip this step
+  npm run docker:dev
+
   npm run test:e2e # for unit e2e test
 ```
 

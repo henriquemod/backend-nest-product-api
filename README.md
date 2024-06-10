@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/henriquemod/backend-nest-product-api/badge.svg)](https://coveralls.io/github/henriquemod/backend-nest-product-api)
+
 <div align="center">
   <h1>An API for managing products</h1>
 </div>
@@ -85,7 +87,7 @@ You have 3 options when it comes to start this project:
 1. Build and run in docker (recommended)
 
 ```bash
-  npm run build:docker
+  npm run docker:prod
 ```
 
 _Command will build the api container and start it along site with an MongoDB_
@@ -93,7 +95,7 @@ _Command will build the api container and start it along site with an MongoDB_
 2. Build locally with MongoDB container
 
 ```bash
-  npm run dev:up
+  npm run docker:dev
 
   # for development environment
   npm run start:dev
